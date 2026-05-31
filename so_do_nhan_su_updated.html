@@ -130,6 +130,24 @@ body{font-size:13px;font-family:inherit}
 .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
 .tag{font-size:11px;padding:2px 8px;border-radius:8px;background:var(--color-background-secondary);border:1px solid var(--color-border-secondary);color:var(--color-text-secondary)}
 .ro-notice{font-size:12px;color:#633806;padding:8px 10px;border-radius:8px;background:#FAEEDA;border:1px solid #EF9F27;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+
+/* TASKS IN PANEL */
+.panel-task-item{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:8px;border:1px solid var(--color-border-secondary);margin-bottom:5px;background:var(--color-background-primary)}
+.panel-task-item.ptdone{background:#F4FAF0;border-color:#5DAA33}
+.pt-status{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.pt-title{flex:1;font-size:12px;color:var(--color-text-primary)}
+.pt-due{font-size:10px;color:var(--color-text-tertiary);white-space:nowrap}
+.pt-del{width:18px;height:18px;border-radius:4px;border:none;background:transparent;color:var(--color-text-tertiary);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:9px;opacity:0;transition:opacity .15s;font-family:inherit;flex-shrink:0}
+.panel-task-item:hover .pt-del{opacity:1}
+.pt-del:hover{background:#FCEBEB;color:#A32D2D}
+.pt-status-sel{border:none;background:transparent;font-size:10px;font-family:inherit;cursor:pointer;outline:none;color:inherit;padding:0}
+.add-pt-row{display:flex;gap:6px;margin-top:8px}
+.add-pt-row input{flex:1;padding:5px 8px;border:1.5px solid var(--color-border-secondary);border-radius:7px;font-size:12px;font-family:inherit;outline:none;background:var(--color-background-primary);color:var(--color-text-primary)}
+.add-pt-row input:focus{border-color:#7F77DD}
+.add-pt-row select{padding:5px 6px;border:1.5px solid var(--color-border-secondary);border-radius:7px;font-size:11px;font-family:inherit;outline:none;background:var(--color-background-primary);color:var(--color-text-primary)}
+.add-pt-btn{padding:5px 10px;border-radius:7px;background:#7F77DD;border:none;color:#fff;font-size:12px;cursor:pointer;font-family:inherit;white-space:nowrap}
+.add-pt-btn:hover{background:#534AB7}
+
 .save-toast{text-align:center;font-size:12px;color:var(--color-text-success);margin-top:8px;height:16px;transition:opacity .4s}
 .train-summary{display:flex;align-items:center;gap:10px;margin-bottom:12px}
 .train-bar-wrap{flex:1;height:6px;border-radius:3px;background:var(--color-border-secondary);overflow:hidden}
@@ -220,6 +238,59 @@ body{font-size:13px;font-family:inherit}
 .clear-btn{width:100%;padding:7px;border-radius:8px;background:transparent;border:1.5px solid var(--color-border-secondary);color:var(--color-text-secondary);font-size:12px;cursor:pointer;font-family:inherit;margin-top:6px}
 .clear-btn:hover{background:#FCEBEB;color:#A32D2D;border-color:#E8A4A4}
 
+
+/* ZOOM CONTROLS */
+.zoom-bar{display:flex;align-items:center;gap:6px;justify-content:center;margin-bottom:8px}
+.zoom-btn{width:28px;height:28px;border-radius:7px;border:1.5px solid var(--color-border-secondary);background:var(--color-background-primary);cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;color:var(--color-text-secondary);font-family:inherit;transition:all .12s}
+.zoom-btn:hover{background:#EEEDFE;color:#534AB7;border-color:#7F77DD}
+.zoom-label{font-size:11px;color:var(--color-text-tertiary);min-width:36px;text-align:center}
+.org-viewport{width:100%;overflow:hidden;cursor:grab;border-radius:10px;border:1.5px solid var(--color-border-secondary);background:var(--color-background-secondary);position:relative;height:70vh;min-height:400px}
+.org-viewport.dragging{cursor:grabbing}
+.org-inner{position:absolute;transform-origin:top left;transition:none}
+
+/* TASK SHEET */
+.task-wrap{max-width:900px;margin:0 auto}
+.task-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.task-header h3{font-size:14px;font-weight:500;color:var(--color-text-primary);flex:1}
+.task-filter{display:flex;gap:6px;flex-wrap:wrap}
+.task-filter select{padding:5px 10px;border:1.5px solid var(--color-border-secondary);border-radius:8px;background:var(--color-background-primary);color:var(--color-text-primary);font-size:12px;font-family:inherit;outline:none}
+.task-filter select:focus{border-color:#7F77DD}
+.task-table{width:100%;border-collapse:collapse;font-size:12px}
+.task-table th{text-align:left;padding:8px 10px;border-bottom:2px solid var(--color-border-secondary);color:var(--color-text-tertiary);font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:.4px;white-space:nowrap}
+.task-table td{padding:8px 10px;border-bottom:1px solid var(--color-border-tertiary);vertical-align:top}
+.task-table tr:last-child td{border-bottom:none}
+.task-table tr:hover td{background:var(--color-background-secondary)}
+.task-person{display:flex;align-items:center;gap:7px}
+.task-av{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;flex-shrink:0;background:#EEEDFE;color:#534AB7}
+.task-name{font-size:12px;font-weight:500;color:var(--color-text-primary)}
+.task-pos{font-size:10px;color:var(--color-text-tertiary)}
+.task-title-inp{width:100%;border:none;background:transparent;font-size:12px;color:var(--color-text-primary);font-family:inherit;outline:none;padding:2px 4px;border-radius:4px}
+.task-title-inp:focus{background:var(--color-background-secondary)}
+.task-title-inp:disabled{color:var(--color-text-secondary);cursor:default}
+.task-status{padding:2px 8px;border-radius:8px;font-size:10px;font-weight:500;border:none;font-family:inherit;cursor:pointer}
+.ts-todo{background:#F1EFE8;color:#5F5E5A}
+.ts-doing{background:#E6F1FB;color:#0C447C}
+.ts-done{background:#EAF3DE;color:#3B6D11}
+.ts-block{background:#FCEBEB;color:#A32D2D}
+.task-date-inp{border:none;background:transparent;font-size:11px;color:var(--color-text-tertiary);font-family:inherit;outline:none;cursor:pointer;padding:2px 4px;border-radius:4px}
+.task-date-inp:focus{background:var(--color-background-secondary)}
+.task-date-inp:disabled{cursor:default}
+.task-del{width:22px;height:22px;border-radius:5px;border:1px solid transparent;background:transparent;color:var(--color-text-tertiary);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:10px;font-family:inherit;opacity:0;transition:opacity .15s}
+.task-table tr:hover .task-del{opacity:1}
+.task-del:hover{background:#FCEBEB;color:#A32D2D;border-color:#E8A4A4}
+.add-task-row{display:flex;gap:8px;margin-top:12px;align-items:center;flex-wrap:wrap}
+.add-task-row select,.add-task-row input{padding:7px 10px;border:1.5px solid var(--color-border-secondary);border-radius:8px;background:var(--color-background-primary);color:var(--color-text-primary);font-size:12px;font-family:inherit;outline:none}
+.add-task-row select:focus,.add-task-row input:focus{border-color:#7F77DD}
+.add-task-row input{flex:1;min-width:120px}
+.task-priority{padding:2px 7px;border-radius:8px;font-size:10px;font-weight:500}
+.tp-high{background:#FCEBEB;color:#A32D2D}
+.tp-med{background:#FAEEDA;color:#633806}
+.tp-low{background:#EAF3DE;color:#3B6D11}
+.task-section{border:1.5px solid var(--color-border-secondary);border-radius:12px;background:var(--color-background-primary);overflow:hidden;margin-bottom:12px}
+.task-section-header{padding:10px 14px;background:var(--color-background-secondary);display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--color-border-secondary)}
+.task-section-header h4{font-size:13px;font-weight:500;color:var(--color-text-primary);flex:1}
+.task-count{font-size:10px;padding:2px 7px;border-radius:8px;background:#EEEDFE;color:#3C3489}
+
 /* LABEL LEGEND IN ORG */
 .label-legend{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:8px}
 .ll-item{display:flex;align-items:center;gap:5px;font-size:11px;padding:3px 8px;border-radius:8px;background:var(--color-background-secondary)}
@@ -263,6 +334,17 @@ let NS=[
   {id:'nv_bo2',pId:'tp_bo',pos:'Hành chính – NS',  br:'bo',   role:'Nhân viên',name:'',cv:'Chuyên viên HC-NS',cm:'',kn:'',ph:'',em:'',tags:['Tuyển dụng'],tr:{},label:null},
 ];
 
+
+/* TASKS */
+let TASKS=[];
+const tuid=()=>'t'+Date.now()+Math.random().toString(36).slice(2,6);
+const TASK_STATUS=['todo','doing','done','block'];
+const TASK_STATUS_LABEL={todo:'Chưa làm',doing:'Đang làm',done:'Hoàn thành',block:'Bị chặn'};
+const TASK_STATUS_CLS={todo:'ts-todo',doing:'ts-doing',done:'ts-done',block:'ts-block'};
+const TASK_PRIORITY=['high','med','low'];
+const TASK_PRIORITY_LABEL={high:'Cao',med:'Trung bình',low:'Thấp'};
+const TASK_PRIORITY_CLS={high:'tp-high',med:'tp-med',low:'tp-low'};
+
 let ses=null,aid=null,view='org',mtab='common',anp=null,sam=false,epid=null,lpNode=null;
 
 /* ---- FIREBASE SAVE/LOAD ---- */
@@ -272,9 +354,10 @@ function applyData(d){
   if(d.MOD)Object.assign(MOD,d.MOD);
   if(d.USERS)Object.keys(d.USERS).forEach(k=>{if(USERS[k])USERS[k].password=d.USERS[k].password;});
   if(d.PRESETS)PRESETS=d.PRESETS;
+  if(d.TASKS)TASKS=d.TASKS;
 }
 async function save(){
-  const data={NS,MOD,USERS,PRESETS};
+  const data={NS,MOD,USERS,PRESETS,TASKS};
   // Also keep localStorage as backup
   try{localStorage.setItem('org_v8',JSON.stringify(data));}catch(e){}
   if(window._fbSave){
@@ -322,7 +405,7 @@ const pws=pw=>!pw.length?{s:0,c:'transparent'}:pw.length<6?{s:25,c:'#E24B4A'}:pw
 const CC={sales:'#6C63D4',bo:'#0F9068',top:'#7A7870'};
 const cc=nd=>CC[nd.br]||CC.top;
 
-function render(){document.getElementById('app').innerHTML='';if(!ses){rLogin();return;}if(view==='modules'){rMod();return;}if(view==='password'){rPw();return;}rOrg();}
+function render(){document.getElementById('app').innerHTML='';if(!ses){rLogin();return;}if(view==='modules'){rMod();return;}if(view==='tasks'){rTasks();return;}if(view==='password'){rPw();return;}rOrg();}
 
 /* ---- LOGIN ---- */
 function rLogin(){
@@ -349,7 +432,7 @@ function tbar(){
     <div class="tb-left"><div class="tb-title"><i class="fa-solid fa-sitemap fa-sm" style="margin-right:5px;color:#7F77DD"></i>Sơ đồ nhân sự<span class="sync-dot" id="sdot" title="Trạng thái đồng bộ"></span></div><div class="tb-user">${ses.name}</div></div>
     <span class="tb-badge ${bc}">${ses.display}</span>
     <button class="nav-btn${view==='org'?' active':''}" onclick="view='org';render()"><i class="fa-solid fa-diagram-project fa-xs"></i> Sơ đồ</button>
-    ${canM()?`<button class="nav-btn${view==='modules'?' active':''}" onclick="view='modules';render()"><i class="fa-solid fa-graduation-cap fa-xs"></i> Đào tạo</button>`:''}
+    ${canM()?`<button class="nav-btn${view==='modules'?' active':''}" onclick="view='modules';render()"><i class="fa-solid fa-graduation-cap fa-xs"></i> Đào tạo</button>`:''}    ${canM()?`<button class="nav-btn${view==='tasks'?' active':''}" onclick="view='tasks';render()"><i class="fa-solid fa-list-check fa-xs"></i> Giao việc</button>`:''}
     ${canM()?`<button class="nav-btn${view==='password'?' active':''}" onclick="view='password';render()"><i class="fa-solid fa-key fa-xs"></i> Mật khẩu</button>`:''}
     <button class="nav-btn danger" onclick="logout()"><i class="fa-solid fa-right-from-bracket fa-xs"></i> Đăng xuất</button>
   </div>`;
@@ -381,7 +464,15 @@ function rOrg(){
   document.getElementById('app').innerHTML=`<div class="screen">
     ${tbar()}
     <div class="perm-banner ${pd}"><i class="fa-solid fa-shield-halved fa-xs"></i>${rd}</div>
-    <div class="org-canvas" id="oc"></div>
+    <div class="zoom-bar">
+      <button class="zoom-btn" onclick="zoomChange(-0.15)" title="Thu nhỏ">−</button>
+      <span class="zoom-label" id="zlbl">100%</span>
+      <button class="zoom-btn" onclick="zoomChange(0.15)" title="Phóng to">+</button>
+      <button class="zoom-btn" onclick="zoomReset()" title="Khớp màn hình" style="width:auto;padding:0 8px;font-size:11px">Fit</button>
+    </div>
+    <div class="org-viewport" id="ovp">
+      <div class="org-inner" id="oc"></div>
+    </div>
     ${legendItems.length?`<div class="label-legend" id="ll">${legendItems.map(l=>`<div class="ll-item"><div class="ll-dot" style="background:${l.color}"></div>${l.name}</div>`).join('')}</div>`:''}
     <div class="legend">
       <div class="leg-item"><div class="leg-dot" style="background:#6C63D4"></div>Kinh doanh</div>
@@ -409,12 +500,21 @@ function rOrg(){
       <div style="margin-bottom:12px"><div class="sec-title">Chuỗi báo cáo</div><div class="chain" id="pch"></div></div>
       <div class="divider"></div>
       <div style="margin-bottom:12px"><div class="sec-title">Kỹ năng & chuyên môn</div><div class="tags" id="ptg"></div></div>
+      <div class="divider"></div>
+      <div id="ptasksec" style="margin-bottom:12px"></div>
       <div id="pac"></div>
       <div class="save-toast" id="pst"></div>
     </div>
   </div>`;
-  draw();if(sam)showM();
+  draw();initZoomPan();setTimeout(zoomReset,50);if(sam)showM();
 }
+
+/* ---- ZOOM & PAN ---- */
+let _z=1,_tx=0,_ty=0,_drag=false,_dx=0,_dy=0,_ox=0,_oy=0;
+function applyTransform(){const i=document.getElementById('oc');if(i){i.style.transform=`translate(${_tx}px,${_ty}px) scale(${_z})`;const l=document.getElementById('zlbl');if(l)l.textContent=Math.round(_z*100)+'%';}}
+function zoomChange(d){_z=Math.min(2,Math.max(0.2,_z+d));applyTransform();}
+function zoomReset(){const vp=document.getElementById('ovp');if(!vp)return;const oc=document.getElementById('oc');if(!oc)return;const vw=vp.clientWidth,vh=vp.clientHeight;const cw=oc.scrollWidth,ch=oc.scrollHeight;_z=Math.min(vw/cw,vh/ch,1)*0.92;_tx=(vw-cw*_z)/2;_ty=Math.max(8,(vh-ch*_z)/2);applyTransform();}
+function initZoomPan(){const vp=document.getElementById('ovp');if(!vp)return;vp.addEventListener('wheel',e=>{e.preventDefault();const d=e.deltaY>0?-0.08:0.08;_z=Math.min(2,Math.max(0.2,_z+d));applyTransform();},{passive:false});vp.addEventListener('mousedown',e=>{if(e.target.closest('.nc'))return;_drag=true;_dx=e.clientX-_tx;_dy=e.clientY-_ty;vp.classList.add('dragging');});document.addEventListener('mousemove',e=>{if(!_drag)return;_tx=e.clientX-_dx;_ty=e.clientY-_dy;applyTransform();});document.addEventListener('mouseup',()=>{_drag=false;document.getElementById('ovp')?.classList.remove('dragging');});vp.addEventListener('touchstart',e=>{if(e.touches.length===1){_drag=true;_dx=e.touches[0].clientX-_tx;_dy=e.touches[0].clientY-_ty;}},{passive:true});vp.addEventListener('touchmove',e=>{if(_drag&&e.touches.length===1){_tx=e.touches[0].clientX-_dx;_ty=e.touches[0].clientY-_dy;applyTransform();}},{passive:true});vp.addEventListener('touchend',()=>{_drag=false;});}
 
 function draw(){
   const oc=document.getElementById('oc');if(!oc)return;
@@ -453,18 +553,18 @@ function draw(){
     }
     else if(nd.id!=='gd'){pill=`<div class="nc-train-wrap"><div class="nc-train-label"><span class="nc-train-sub" style="color:var(--color-text-tertiary);font-style:italic">Chưa có module</span></div></div>`;}
     const labelTag=lbl?`<div style="display:flex;justify-content:center;margin-top:3px"><span class="nc-label-tag" style="background:${lbl.color}">${lbl.name}</span></div>`:'';
-    const eb=ed?`<button class="edit-btn-abs" onclick="oPanel('${nd.id}',true)"><i class="fa-solid fa-pen-to-square fa-xs"></i></button>`:'';
-    const vb=vw&&!ed?`<button class="edit-btn-abs" onclick="oPanel('${nd.id}',false)"><i class="fa-solid fa-eye fa-xs"></i></button>`:'';
-    const db=ed&&nd.id!=='gd'?`<button class="del-btn-abs" onclick="delN('${nd.id}')"><i class="fa-solid fa-xmark fa-xs"></i></button>`:'';
+    const eb=ed?`<button class="edit-btn-abs" onclick="event.stopPropagation();oPanel('${nd.id}',true)"><i class="fa-solid fa-pen-to-square fa-xs"></i></button>`:'';
+    const vb=vw&&!ed?`<button class="edit-btn-abs" onclick="event.stopPropagation();oPanel('${nd.id}',false)"><i class="fa-solid fa-eye fa-xs"></i></button>`:'';
+    const db=ed&&nd.id!=='gd'?`<button class="del-btn-abs" onclick="event.stopPropagation();delN('${nd.id}')"><i class="fa-solid fa-xmark fa-xs"></i></button>`:'';
     // 🎨 label button — admin only
-    const lbtn=isA()?`<button class="tag-btn-abs" style="background:${lbl?lbl.color:'#9B99A6'}" onclick="openLP('${nd.id}',event)" title="Gắn nhãn màu"><i class="fa-solid fa-palette" style="color:#fff;font-size:8px"></i></button>`:'';
+    const lbtn=isA()?`<button class="tag-btn-abs" style="background:${lbl?lbl.color:'#9B99A6'}" onclick="event.stopPropagation();openLP('${nd.id}',event)" title="Gắn nhãn màu"><i class="fa-solid fa-palette" style="color:#fff;font-size:8px"></i></button>`:'';
     const ni=ed?`<input id="ni-${nd.id}" type="text" value="${nd.name||''}" placeholder="Nhập tên..." oninput="upN('${nd.id}',this.value)">`:`<input id="ni-${nd.id}" type="text" value="${nd.name||''}" placeholder="—" disabled>`;
     const pe=isA()?`<span class="pos-display editable" id="ps-${nd.id}" title="Nhấn để đổi tên chức danh" onclick="sEP('${nd.id}',this)">${nd.pos}</span>`:`<span class="pos-display">${nd.pos}</span>`;
     const roleEl=isA()
       ?`<div class="nc-role editable-role" onclick="sER('${nd.id}',this)">${nd.role}</div>`
       :`<div class="nc-role">${nd.role}</div>`;
     fo+=`<foreignObject x="${x}" y="${y}" width="${NW}" height="${NH}">
-      <div xmlns="http://www.w3.org/1999/xhtml" class="nc ${brCls}${lk}" style="${borderStyle}">
+      <div xmlns="http://www.w3.org/1999/xhtml" class="nc ${brCls}${lk}" style="${borderStyle}${ed||vw?'cursor:pointer':''}" onclick="${ed||vw?`oPanel('${nd.id}',${ed})`:''}">
         ${eb}${vb}${db}${lbtn}
         ${roleEl}${pe}
         <div class="nc-namewrap">${ni}</div>
@@ -612,6 +712,7 @@ function oPanel(id,ed_){
   document.getElementById('pps').textContent=nd.pos;
   [['f-cv','cv'],['f-cm','cm'],['f-kn','kn'],['f-ph','ph'],['f-em','em']].forEach(([fi,k])=>{const el=document.getElementById(fi);if(el){el.value=nd[k]||'';el.disabled=!ed;}});
   rTr(id,ed);
+  rPanelTasks(id);
   const ch=chain(id);
   document.getElementById('pch').innerHTML=ch.map((c,i)=>i<ch.length-1?`<span class="cp">${c}</span><span class="ca">→</span>`:`<span class="cp">${c}</span>`).join('');
   document.getElementById('ptg').innerHTML=(nd.tags||[]).map(t=>`<span class="tag">${t}</span>`).join('');
@@ -621,6 +722,53 @@ function oPanel(id,ed_){
   const p=document.getElementById('mp');p.classList.add('visible');
   setTimeout(()=>p.scrollIntoView({behavior:'smooth',block:'nearest'}),60);
 }
+
+/* ---- TASKS IN PANEL ---- */
+function rPanelTasks(nodeId){
+  const sec=document.getElementById('ptasksec');if(!sec)return;
+  const tasks=TASKS.filter(t=>t.nodeId===nodeId);
+  const canEdit=canGiveTask();
+  const STATUS_DOT={todo:'#9B99A6',doing:'#2980B9',done:'#27AE60',block:'#E74C3C'};
+  let h=`<div class="sec-title" style="display:flex;align-items:center;justify-content:space-between">
+    <span><i class="fa-solid fa-list-check fa-xs" style="margin-right:5px;color:#7F77DD"></i>Công việc được giao <span style="font-weight:400;font-size:10px;color:var(--color-text-tertiary)">(${tasks.filter(t=>t.status==='done').length}/${tasks.length} xong)</span></span>
+    ${canEdit?`<span style="font-size:10px;font-weight:400;color:#7F77DD;cursor:pointer;text-transform:none;letter-spacing:0" onclick="view='tasks';taskFilterNode='${nodeId}';render()">Xem tất cả →</span>`:''}
+  </div>`;
+  if(tasks.length===0){h+=`<div style="font-size:12px;color:var(--color-text-tertiary);padding:4px 0;font-style:italic">Chưa có công việc nào.</div>`;}
+  else{
+    tasks.forEach(t=>{
+      const dot=STATUS_DOT[t.status]||'#ccc';
+      const stLbl=TASK_STATUS_LABEL[t.status]||t.status;
+      const stOpts=TASK_STATUS.map(s=>`<option value="${s}"${t.status===s?' selected':''}>${TASK_STATUS_LABEL[s]}</option>`).join('');
+      h+=`<div class="panel-task-item${t.status==='done'?' ptdone':''}">
+        <div class="pt-status" style="background:${dot}" title="${stLbl}"></div>
+        <div class="pt-title">${t.title}</div>
+        ${t.due?`<div class="pt-due">${t.due}</div>`:''}
+        ${canEdit?`<select class="pt-status-sel" onchange="updTask('${t.id}','status',this.value);rPanelTasks('${nodeId}')">${stOpts}</select>`:`<div class="pt-due">${stLbl}</div>`}
+        ${canEdit?`<button class="pt-del" onclick="delTask('${t.id}');rPanelTasks('${nodeId}')"><i class="fa-solid fa-xmark"></i></button>`:''}
+      </div>`;
+    });
+  }
+  if(canEdit){
+    h+=`<div class="add-pt-row">
+      <input id="pt-inp-${nodeId}" placeholder="Thêm công việc..." onkeydown="if(event.key==='Enter')addPanelTask('${nodeId}')">
+      <select id="pt-pri-${nodeId}"><option value="med">TB</option><option value="high">Cao</option><option value="low">Thấp</option></select>
+      <input type="date" id="pt-due-${nodeId}" style="width:110px;padding:5px 6px;border:1.5px solid var(--color-border-secondary);border-radius:7px;font-size:11px;font-family:inherit;outline:none">
+      <button class="add-pt-btn" onclick="addPanelTask('${nodeId}')"><i class="fa-solid fa-plus fa-xs"></i></button>
+    </div>`;
+  }
+  sec.innerHTML=h;
+}
+
+function addPanelTask(nodeId){
+  const inp=document.getElementById('pt-inp-'+nodeId);
+  const pri=document.getElementById('pt-pri-'+nodeId);
+  const due=document.getElementById('pt-due-'+nodeId);
+  if(!inp||!inp.value.trim())return;
+  TASKS.push({id:tuid(),nodeId,title:inp.value.trim(),priority:pri?pri.value:'med',status:'todo',due:due?due.value:'',by:ses.name,created:new Date().toISOString().slice(0,10)});
+  inp.value='';if(due)due.value='';
+  save();rPanelTasks(nodeId);
+}
+
 function rTr(id,ed){
   const sec=document.getElementById('trsec');if(!sec)return;
   const nd=byId(id);
@@ -681,6 +829,135 @@ function sbpw(u,s,is){const e=document.getElementById('pe-'+s),ok=document.getEl
 
 function toast(id,msg){const t=document.getElementById(id);if(!t)return;t.textContent=msg;t.style.opacity='1';setTimeout(()=>{t.style.opacity='0';},2500);}
 function logout(){ses=null;aid=null;view='org';sam=false;render();}
+
+
+/* ---- TASKS VIEW ---- */
+let taskFilterNode='all',taskFilterStatus='all';
+const canGiveTask=()=>ses&&(ses.role==='admin'||ses.role==='manager');
+
+function rTasks(){
+  const staffNodes=NS.filter(n=>n.id!=='gd');
+  // Filter nodes manager can see
+  const visibleNodes=isA()?staffNodes:staffNodes.filter(n=>n.br===ses.branch||abr(n.id)===ses.branch);
+  
+  let filteredTasks=TASKS.filter(t=>{
+    const nodeOk=taskFilterNode==='all'||t.nodeId===taskFilterNode;
+    const statusOk=taskFilterStatus==='all'||t.status===taskFilterStatus;
+    return nodeOk&&statusOk;
+  });
+  // Manager only sees tasks for their branch
+  if(!isA()){filteredTasks=filteredTasks.filter(t=>{const n=byId(t.nodeId);return n&&(n.br===ses.branch||abr(t.nodeId)===ses.branch);});}
+
+  // Group by person
+  const grouped={};
+  filteredTasks.forEach(t=>{if(!grouped[t.nodeId])grouped[t.nodeId]=[];grouped[t.nodeId].push(t);});
+
+  const nodeOpts=visibleNodes.map(n=>`<option value="${n.id}">${n.name||n.pos}</option>`).join('');
+  const statusOpts=Object.entries(TASK_STATUS_LABEL).map(([k,v])=>`<option value="${k}">${v}</option>`).join('');
+
+  let html=`<div class="screen"><div class="task-wrap">
+    ${tbar()}
+    <div class="task-header">
+      <h3><i class="fa-solid fa-list-check fa-sm" style="color:#7F77DD;margin-right:6px"></i>Giao việc theo nhân sự</h3>
+      <div class="task-filter">
+        <select onchange="taskFilterNode=this.value;rTasks()"><option value="all">Tất cả nhân sự</option>${nodeOpts}</select>
+        <select onchange="taskFilterStatus=this.value;rTasks()"><option value="all">Tất cả trạng thái</option>${statusOpts}</select>
+      </div>
+    </div>`;
+
+  if(Object.keys(grouped).length===0){
+    html+=`<div style="text-align:center;padding:40px;color:var(--color-text-tertiary);font-size:13px"><i class="fa-solid fa-inbox fa-2x" style="margin-bottom:10px;display:block;opacity:.4"></i>Chưa có công việc nào</div>`;
+  } else {
+    Object.entries(grouped).forEach(([nodeId,tasks])=>{
+      const nd=byId(nodeId);if(!nd)return;
+      const done=tasks.filter(t=>t.status==='done').length;
+      const av=ini(nd.name||nd.pos);
+      html+=`<div class="task-section">
+        <div class="task-section-header">
+          <div class="task-av">${av}</div>
+          <h4>${nd.name||'(Chưa có tên)'} <span style="font-weight:400;color:var(--color-text-tertiary)">· ${nd.pos}</span></h4>
+          <span class="task-count">${done}/${tasks.length} xong</span>
+        </div>
+        <table class="task-table">
+          <thead><tr><th style="width:38%">Công việc</th><th>Ưu tiên</th><th>Trạng thái</th><th>Hạn</th><th>Giao bởi</th><th></th></tr></thead>
+          <tbody>`;
+      tasks.forEach(t=>{
+        const canEdit=canGiveTask();
+        const priCls=TASK_PRIORITY_CLS[t.priority]||'tp-med';
+        const priLbl=TASK_PRIORITY_LABEL[t.priority]||'';
+        const stCls=TASK_STATUS_CLS[t.status]||'ts-todo';
+        const stLbl=TASK_STATUS_LABEL[t.status]||'';
+        const priOpts=TASK_PRIORITY.map(p=>`<option value="${p}"${t.priority===p?' selected':''}>${TASK_PRIORITY_LABEL[p]}</option>`).join('');
+        const stOpts=TASK_STATUS.map(s=>`<option value="${s}"${t.status===s?' selected':''}>${TASK_STATUS_LABEL[s]}</option>`).join('');
+        html+=`<tr>
+          <td><input class="task-title-inp" value="${t.title||''}" ${canEdit?'':'disabled'} onchange="updTask('${t.id}','title',this.value)"></td>
+          <td>${canEdit
+            ?`<select style="border:none;background:transparent;font-size:11px;font-family:inherit;color:inherit;outline:none;cursor:pointer" onchange="updTask('${t.id}','priority',this.value)">${priOpts}</select>`
+            :`<span class="task-priority ${priCls}">${priLbl}</span>`}
+          </td>
+          <td>${canEdit
+            ?`<select style="border:none;background:transparent;font-size:11px;font-family:inherit;outline:none;cursor:pointer" class="${stCls}" onchange="updTask('${t.id}','status',this.value)">${stOpts}</select>`
+            :`<span class="task-status ${stCls}">${stLbl}</span>`}
+          </td>
+          <td><input type="date" class="task-date-inp" value="${t.due||''}" ${canEdit?'':'disabled'} onchange="updTask('${t.id}','due',this.value)"></td>
+          <td style="font-size:11px;color:var(--color-text-tertiary)">${t.by||''}</td>
+          <td>${canEdit?`<button class="task-del" onclick="delTask('${t.id}')"><i class="fa-solid fa-xmark"></i></button>`:''}</td>
+        </tr>`;
+      });
+      html+=`</tbody></table>`;
+      if(canGiveTask()){
+        const nodeSelectOpts=visibleNodes.map(n=>`<option value="${n.id}"${n.id===nodeId?' selected':''}>${n.name||n.pos}</option>`).join('');
+        html+=`<div class="add-task-row" style="padding:10px 14px;border-top:1px solid var(--color-border-secondary)">
+          <select id="nt-node-${nodeId}"><option value="">Chọn người...</option>${nodeSelectOpts}</select>
+          <input id="nt-title-${nodeId}" placeholder="Tên công việc..." onkeydown="if(event.key==='Enter')addTask('${nodeId}')">
+          <select id="nt-pri-${nodeId}"><option value="med">Trung bình</option><option value="high">Cao</option><option value="low">Thấp</option></select>
+          <input type="date" id="nt-due-${nodeId}">
+          <button class="add-btn" onclick="addTask('${nodeId}')"><i class="fa-solid fa-plus fa-xs"></i> Thêm</button>
+        </div>`;
+      }
+      html+=`</div>`;
+    });
+  }
+
+  // Add new task section for any node
+  if(canGiveTask()){
+    const nodeSelectOpts2=visibleNodes.map(n=>`<option value="${n.id}">${n.name||n.pos} · ${n.pos}</option>`).join('');
+    html+=`<div class="task-section">
+      <div class="task-section-header"><h4>➕ Giao việc mới</h4></div>
+      <div class="add-task-row" style="padding:12px 14px">
+        <select id="nt-node-new"><option value="">Chọn người...</option>${nodeSelectOpts2}</select>
+        <input id="nt-title-new" placeholder="Tên công việc..." onkeydown="if(event.key==='Enter')addTask('new')">
+        <select id="nt-pri-new"><option value="med">Trung bình</option><option value="high">Cao</option><option value="low">Thấp</option></select>
+        <input type="date" id="nt-due-new">
+        <button class="add-btn" onclick="addTask('new')"><i class="fa-solid fa-plus fa-xs"></i> Thêm</button>
+      </div>
+    </div>`;
+  }
+
+  html+=`</div></div>`;
+  document.getElementById('app').innerHTML=html;
+}
+
+function addTask(groupNodeId){
+  const nodeEl=document.getElementById('nt-node-'+groupNodeId);
+  const titleEl=document.getElementById('nt-title-'+groupNodeId);
+  const priEl=document.getElementById('nt-pri-'+groupNodeId);
+  const dueEl=document.getElementById('nt-due-'+groupNodeId);
+  if(!nodeEl||!titleEl)return;
+  const nodeId=nodeEl.value||groupNodeId;
+  const title=titleEl.value.trim();
+  if(!nodeId||!title)return;
+  TASKS.push({id:tuid(),nodeId,title,priority:priEl?priEl.value:'med',status:'todo',due:dueEl?dueEl.value:'',by:ses.name,created:new Date().toISOString().slice(0,10)});
+  save();rTasks();
+}
+
+function updTask(tid,field,val){
+  const t=TASKS.find(x=>x.id===tid);if(t){t[field]=val;save();}
+}
+
+function delTask(tid){
+  TASKS=TASKS.filter(x=>x.id!==tid);save();if(document.getElementById("ptasksec")){}else{rTasks();}
+}
 
 // Wait for Firebase then load & render
 async function init(){
